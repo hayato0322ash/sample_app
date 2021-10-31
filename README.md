@@ -39,3 +39,6 @@ $ rails server
 
 詳しくは、[*Ruby on Rails チュートリアル*](https://railstutorial.jp/)
 を参考にしてください。
+
+アクセストークン
+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
