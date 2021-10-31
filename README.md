@@ -42,3 +42,6 @@ $ rails server
 
 アクセストークン
 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
+
+
+これが反映されますように
