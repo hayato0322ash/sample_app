@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only:[:index, :edit,:update, :destroy]
   before_action :correct_user, only:[:edit,:update]
-  before_action :admin_user, only: :destroy
+  before_action :admin_user, only: [:destroy]
   
   
   def index
@@ -19,11 +19,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "登録が完了しました"
-      log_in @user
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = "メールを確認してください"
+      redirect_to root_url
     else
-      render "new"
+      render 'new'
     end
   end
   
