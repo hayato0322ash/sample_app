@@ -32,6 +32,16 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
   
+  test "ユーザーのフォロー一覧ページを表示しようとするとログインページに飛ぶ" do
+    get following_user_path(@user)
+    assert_redirected_to login_url
+  end
+  
+  test "ユーザーのフォロワー一覧ページを表示しようとするとログインページに飛ぶ" do 
+    get followers_user_path(@user)
+    assert_redirected_to login_url
+  end
+  
   
 
 end
